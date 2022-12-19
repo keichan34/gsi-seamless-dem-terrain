@@ -1,0 +1,31 @@
+{
+  "version": 8,
+  "name": "GSI Seamlessphoto & DEM Terrain",
+  "sources": {
+    "seamlessphoto": {
+      "type": "raster",
+      "minzoom": 2,
+      "maxzoom": 18,
+      "tiles": [
+        "https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg"
+      ],
+      "attribution": "<a href=\"https://www.gsi.go.jp/\" target=\"_blank\" rel=\"noopener noreferrer\">© GSI Japan</a>"
+    },
+    "dem": {
+      "type": "raster-dem",
+      "url": "https://tileserver.geolonia.com/gsi-dem/tiles.json?key=YOUR-API-KEY",
+      "attribution": "<a href=\"https://www.gsi.go.jp/\" target=\"_blank\" rel=\"noopener noreferrer\">© GSI Japan</a>"
+    }
+  },
+  "terrain": {
+    "source": "dem",
+    "exaggeration": 1.1
+  },
+  "layers": [
+    {
+      "id": "background",
+      "type": "raster",
+      "source": "seamlessphoto"
+    }
+  ]
+}
